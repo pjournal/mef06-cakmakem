@@ -1,0 +1,278 @@
+---
+title: "BDA-503 Assigment 1"
+subtitle: "A short brief of author and R use cases"
+author: "Emre Çakmak"
+date: "2022-10-09"
+toc: true
+toc-location: left
+number-sections: true
+format: 
+  html:
+    theme: 
+      light: pulse
+      dark: vapor
+    fontsize: 0.8em
+editor: visual
+---
+
+## Introduction
+
+Hi dear reader,
+
+I'm Emre Çakmak from Istanbul/Turkey. I graduated from my bachelor at Istanbul Technical University, Industrial Engineering Department in 2018.
+
+My current role is Data Scientist at E-commerce Department in LC Waikiki which is a Istanbul based global fashion retailer driving operations on more than 50 countries. I had different positions like Data Analyst, Business Intelligence Specialist in different companies during past 4 years. Especially in last 1 year, I dedicated to improve myself for application of ML Technics due to enrich customer&item based data. So, I'm a part of BDA Graduate Program in MEF University to wide my knowledge in audience management and marketing applications by the help of real-life use cases.
+
+[**Here is my LinkedIn Profile**](https://www.linkedin.com/in/emre-%C3%A7akmak-7778b160/)
+
+[![](images/emrecakmak.png){fig-align="left" width="100"}](https://www.linkedin.com/in/emre-%C3%A7akmak-7778b160/)
+
+## RStudio Global 2022 Conference - Quarto for the Curious
+
+<img src="https://embed-ssl.wistia.com/deliveries/6bc55a5e93a0f029dd2cd476c09dcf9fba158236.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" width="400" height="225" style="width: 400px; height: 225px;"/>
+
+[What's *Quarto* according to Tom Mock](https://www.rstudio.com/conference/2022/talks/quarto-for-rmarkdown-users/)
+
+In this paragraph, I aim to give you some main differences between *Quarto,* the brand new documentation system which has been released April 2022, and *RMarkdown* being used for almost a decade.
+
+-   Tom Mock says *Quarto* is Open source scientific and technical publishing system. Also he added that *Quarto* is the next generation of *RMarkdown*.
+
+Here is some differences between them:
+
+### Preprocessing
+
+::: {#fig-quarto-vs-rmarkdown layout-ncol="2"}
+![RMarkdown](images/rmarkdown.PNG){#fig-rmarkdown width="350"}
+
+![Quarto](images/quatro.PNG){#fig-quatro width="350"}
+
+RMarkdown vs Quarto Preprocessing Diagram
+:::
+
+Altough it seems like they have almost same workflow behind the scenes; *Quarto* doesn't need to have R in the system to use it. It means that you can use *Quarto* in a fresh computer but *Rmarkdown* needs to have R in the system.
+
+### Language Support
+
+The main purpose of releasing *Quarto* is improving the communication between data science communities whatever their language is. Because of this *Quarto* supports other languages as engine.
+
+::: {#fig-quarto-language-support}
+![](images/quartojupytersupport.PNG){width="350"}
+
+Jupyter as Quarto Engine
+:::
+
+This availability in *Quarto* and not limiting with R allows people to collaborate as Python developer with others. Tom Mock figured this situation out like
+
+-   **Quarto: Comfortable baking in your own kitchen**
+-   **RMarkdown: Uncomfortable baking in corporate kitchen**
+
+## R Posts
+
+This section includes 3 different R Programming use case
+
+### Web Scraping with R
+
+It's very known fact that people have some struggle to access to a clean dataset. In these cases, we need to be a little bit creative to create our own dataset. And one way of the creating a new dataset is web scraping.
+
+In this paragraph, I want to introduce how to scrape a web page by the help of R packages. The most common 2 packages are:
+
+-   {rvest}
+-   {RSelenium}
+
+**Note that: Some websites have strict policies against scraping. Be careful!**
+
+Step by step scraping of public IMDB Dataset
+
+  **Step 1: Install Package**
+
+```{r web-scraping-chunk1}
+## Before you start, you need to execute once the code below.
+##install.packages("rvest")
+
+```
+  **Step 2: Call the library and use html functions**
+
+```{r web-scraping-chunk2}
+## call the rvest library for required functions
+library(rvest)
+
+## define the website link you want to scrape
+link = "https://www.imdb.com/search/title/?title_type=feature&num_votes=30000,&genres=comedy"
+
+## send a http get request to the link above and store it in a variable
+page = read_html(link)
+
+## filter and grab all elements in same class
+titles = page %>% html_nodes(".lister-item-header a") %>% html_text()
+
+## preview the titles
+titles[1:10]
+
+```
+  **Step 3: Create other variables**
+
+```{r web-scraping-chunk3}
+## apply same procedure to other variables
+year= page %>% html_nodes(".text-muted.unbold") %>% html_text()
+rating = page %>% html_nodes(".ratings-imdb-rating strong") %>% html_text()
+
+
+## preview variables
+year[1:10]
+rating[1:10]
+
+```
+
+  **Step 4: Create data frame**
+
+```{r web-scraping-chunk4}
+
+## create a dataset
+movies = data.frame(titles, year, rating, stringsAsFactors = FALSE)
+movies[1:10,]
+
+```
+
+References of web scraping with R:
+
+-   [Scraperapi](https://www.scraperapi.com/blog/web-scraping-with-r/)
+-   [Scrapingbee](https://www.scrapingbee.com/blog/web-scraping-r/)
+-   [Appsilon](https://appsilon.com/webscraping-dynamic-websites-with-r/)
+
+
+### Simple Aggregations on Dataset
+
+This part provides some basic aggregations and data manipulation methods in R via {dplyr} package. 
+
+Without leaving the concept in previous part, we can assume that we created our own dataset. So, what's next? 
+
+The process of extracting insightful information from datasets starts from understanding the data structure and manipulating them. R provides a package just for this: **{dplyr}**
+
+Step by step aggregation & filtering & summarizing dataset
+
+  **Step 1: Install Package**
+
+```{r simple-aggregations-chunk1}
+
+## Before you start, you need to execute once the code below.
+##install.packages("dplyr")
+
+```
+  **Step 2: Call the library**
+
+```{r simple-aggregations-chunk2}
+library(dplyr)
+```
+
+  **Step 3: Select subset of data in different aspects**
+
+```{r simple-aggregations-chunk3}
+
+## selecting specific columns
+select(movies, titles, year)[1:10,]
+
+## filter data according to specific condition
+filter(movies, rating > 8)[1:10,]
+
+## sort rows
+arrange(movies, desc(titles))[1:10,]
+
+## select top n rows
+top_n(movies, 3, titles)
+```
+  **Step 4: Summarize Dataset**
+
+```{r simple-aggregations-chunk4}
+
+## convert rating columns as numeric and calculate the average
+summarise(movies, average_rating = mean(as.numeric(rating)))
+
+## group by and summarize
+grouped_data = group_by(movies, year)
+summarise(grouped_data, average_rating = mean(as.numeric(rating)))[1:5,]
+```
+
+**Step 5: %>% Operator**
+
+This operator takes the object from the left and gives it as the first argument to the function on the right. It makes your code more readable.
+
+```{r simple-aggregations-chunk5}
+
+## same grouping and summarizing operation at step4 
+
+movies %>%
+  group_by(year) %>%
+  summarise(average_rating = mean(as.numeric(rating)))%>%
+  top_n(5, desc(average_rating))
+
+```
+
+Reference of aggregations with R:
+
+-   [courses.cs.ut.ee](https://courses.cs.ut.ee/MTAT.03.183/2017_fall/uploads/Main/dplyr.html)
+
+
+### Visualization with R
+
+
+
+
+  **Step 1: Install Package**
+
+```{r visualization-chunk1}
+
+## Before you start, you need to execute once the code below.
+##install.packages("ggplot2")
+
+```
+
+  **Step 2: Call the library**
+
+```{r visualization-chunk2}
+library(ggplot2)
+```
+
+
+  **Step 3: Histogram with ggplot2**
+
+```{r visualization-chunk3}
+
+## convert rating field as numeric and keep in original dataset
+movies$rating=as.numeric(rating)
+
+## histogram for ratings
+hist(movies$rating,col='steelblue',main='Rating Histogram',
+     xlab='Ratings')
+```
+
+
+  **Step 4: Pie Chart with ggplot2**
+
+```{r visualization-chunk4}
+
+## Set a new flag in dataset
+movies=movies %>% mutate(rating_flag = case_when(rating>=8~ "Higher 8", TRUE ~ "Lower 8"))
+
+## creating a new table for better visualization
+count_movies=movies %>% count(rating_flag)
+
+## pie chart according to rating of movies
+ggplot(count_movies, aes(x = "", y = n, fill = rating_flag)) +
+  geom_col(color = "black") +
+  geom_label(aes(label = n),
+             position = position_stack(vjust = 0.5),
+             show.legend = FALSE) +
+  coord_polar(theta = "y")
+
+
+```
+
+References of visualization with R:
+
+-   [r-charts](https://r-charts.com/part-whole/pie-chart-ggplot2/)
+-   [kdnuggets](https://www.kdnuggets.com/2018/06/7-simple-data-visualizations-should-know-r.html)
+
+
+
+
+
