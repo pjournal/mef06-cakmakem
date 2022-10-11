@@ -2,20 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-10-01">
+<meta name="author" content="Emre Çakmak">
+<meta name="dcterms.date" content="2022-10-09">
 
-<title>[STUDENT/GROUP NAME] Progress Journal - 1&nbsp; Assignment 1</title>
+<title>[STUDENT/GROUP NAME] Progress Journal - 1&nbsp; BDA-503 Assigment 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -54,7 +60,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -67,7 +73,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -128,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment 1</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">BDA-503 Assigment 1</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -176,33 +182,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment 1</span></a>
+  <a href="./assignment1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">BDA-503 Assigment 1</span></a>
   </div>
 </li>
     </ul>
     </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">1.1</span>  Introduction</a></li>
+  <li><a href="#rstudio-global-2022-conference---quarto-for-the-curious" id="toc-rstudio-global-2022-conference---quarto-for-the-curious" class="nav-link" data-scroll-target="#rstudio-global-2022-conference---quarto-for-the-curious"><span class="toc-section-number">1.2</span>  RStudio Global 2022 Conference - Quarto for the Curious</a>
+  <ul class="collapse">
+  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing"><span class="toc-section-number">1.2.1</span>  Preprocessing</a></li>
+  <li><a href="#language-support" id="toc-language-support" class="nav-link" data-scroll-target="#language-support"><span class="toc-section-number">1.2.2</span>  Language Support</a></li>
+  </ul></li>
+  <li><a href="#r-posts" id="toc-r-posts" class="nav-link" data-scroll-target="#r-posts"><span class="toc-section-number">1.3</span>  R Posts</a>
+  <ul class="collapse">
+  <li><a href="#web-scraping-with-r" id="toc-web-scraping-with-r" class="nav-link" data-scroll-target="#web-scraping-with-r"><span class="toc-section-number">1.3.1</span>  Web Scraping with R</a></li>
+  <li><a href="#simple-aggregations-on-dataset" id="toc-simple-aggregations-on-dataset" class="nav-link" data-scroll-target="#simple-aggregations-on-dataset"><span class="toc-section-number">1.3.2</span>  Simple Aggregations on Dataset</a></li>
+  <li><a href="#visualization-with-r" id="toc-visualization-with-r" class="nav-link" data-scroll-target="#visualization-with-r"><span class="toc-section-number">1.3.3</span>  Visualization with R</a></li>
+  </ul></li>
+  </ul>
+</nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment 1</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">BDA-503 Assigment 1</span></h1>
+<p class="subtitle lead">A short brief of author and R use cases</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Emre Çakmak </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 1, 2022</p>
+      <p class="date">October 9, 2022</p>
     </div>
   </div>
     
@@ -211,17 +241,335 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>This is a template example qmd output page. You may see an example R code below.</p>
+<section id="introduction" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
+<p>Hi dear reader,</p>
+<p>I’m Emre Çakmak from Istanbul/Turkey. I graduated from my bachelor at Istanbul Technical University, Industrial Engineering Department in 2018.</p>
+<p>My current role is Data Scientist at E-commerce Department in LC Waikiki which is a Istanbul based global fashion retailer driving operations on more than 50 countries. I had different positions like Data Analyst, Business Intelligence Specialist in different companies during past 4 years. Especially in last 1 year, I dedicated to improve myself for application of ML Technics due to enrich customer&amp;item based data. So, I’m a part of BDA Graduate Program in MEF University to wide my knowledge in audience management and marketing applications by the help of real-life use cases.</p>
+<p><a href="https://www.linkedin.com/in/emre-%C3%A7akmak-7778b160/"><strong>Here is my LinkedIn Profile</strong></a></p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="https://www.linkedin.com/in/emre-%C3%A7akmak-7778b160/"><img src="images/emrecakmak.png" class="img-fluid figure-img" width="100"></a></p>
+</figure>
+</div>
+</section>
+<section id="rstudio-global-2022-conference---quarto-for-the-curious" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="rstudio-global-2022-conference---quarto-for-the-curious"><span class="header-section-number">1.2</span> RStudio Global 2022 Conference - Quarto for the Curious</h2>
+<p><img src="https://embed-ssl.wistia.com/deliveries/6bc55a5e93a0f029dd2cd476c09dcf9fba158236.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" width="400" height="225" style="width: 400px; height: 225px;"></p>
+<p><a href="https://www.rstudio.com/conference/2022/talks/quarto-for-rmarkdown-users/">What’s <em>Quarto</em> according to Tom Mock</a></p>
+<p>In this paragraph, I aim to give you some main differences between <em>Quarto,</em> the brand new documentation system which has been released April 2022, and <em>RMarkdown</em> being used for almost a decade.</p>
+<ul>
+<li>Tom Mock says <em>Quarto</em> is Open source scientific and technical publishing system. Also he added that <em>Quarto</em> is the next generation of <em>RMarkdown</em>.</li>
+</ul>
+<p>Here is some differences between them:</p>
+<section id="preprocessing" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="preprocessing"><span class="header-section-number">1.2.1</span> Preprocessing</h3>
+<div id="fig-quarto-vs-rmarkdown" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-rmarkdown" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/rmarkdown.PNG" class="img-fluid figure-img" data-ref-parent="fig-quarto-vs-rmarkdown" width="350"></p>
+<p></p><figcaption class="figure-caption">(a) RMarkdown</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-quatro" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/quatro.PNG" class="img-fluid figure-img" data-ref-parent="fig-quarto-vs-rmarkdown" width="350"></p>
+<p></p><figcaption class="figure-caption">(b) Quarto</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: RMarkdown vs Quarto Preprocessing Diagram</figcaption><p></p>
+</figure>
+</div>
+<p>Altough it seems like they have almost same workflow behind the scenes; <em>Quarto</em> doesn’t need to have R in the system to use it. It means that you can use <em>Quarto</em> in a fresh computer but <em>Rmarkdown</em> needs to have R in the system.</p>
+</section>
+<section id="language-support" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="language-support"><span class="header-section-number">1.2.2</span> Language Support</h3>
+<p>The main purpose of releasing <em>Quarto</em> is improving the communication between data science communities whatever their language is. Because of this <em>Quarto</em> supports other languages as engine.</p>
+<div id="fig-quarto-language-support" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/quartojupytersupport.PNG" class="img-fluid figure-img" width="350"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.2: Jupyter as Quarto Engine</figcaption><p></p>
+</figure>
+</div>
+<p>This availability in <em>Quarto</em> and not limiting with R allows people to collaborate as Python developer with others. Tom Mock figured this situation out like</p>
+<ul>
+<li><strong>Quarto: Comfortable baking in your own kitchen</strong></li>
+<li><strong>RMarkdown: Uncomfortable baking in corporate kitchen</strong></li>
+</ul>
+</section>
+</section>
+<section id="r-posts" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="r-posts"><span class="header-section-number">1.3</span> R Posts</h2>
+<p>This section includes 3 different R Programming use case</p>
+<section id="web-scraping-with-r" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="web-scraping-with-r"><span class="header-section-number">1.3.1</span> Web Scraping with R</h3>
+<p>It’s very known fact that people have some struggle to access to a clean dataset. In these cases, we need to be a little bit creative to create our own dataset. And one way of the creating a new dataset is web scraping.</p>
+<p>In this paragraph, I want to introduce how to scrape a web page by the help of R packages. The most common 2 packages are:</p>
+<ul>
+<li>{rvest}</li>
+<li>{RSelenium}</li>
+</ul>
+<p><strong>Note that: Some websites have strict policies against scraping. Be careful!</strong></p>
+<p>Step by step scraping of public IMDB Dataset</p>
+<p><strong>Step 1: Install Package</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>vec1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(LETTERS,<span class="dv">5</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(vec1,<span class="at">collapse=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Before you start, you need to execute once the code below.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">##install.packages("rvest")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Step 2: Call the library and use html functions</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## call the rvest library for required functions</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## define the website link you want to scrape</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>link <span class="ot">=</span> <span class="st">"https://www.imdb.com/search/title/?title_type=feature&amp;num_votes=30000,&amp;genres=comedy"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## send a http get request to the link above and store it in a variable</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">read_html</span>(link)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="do">## filter and grab all elements in same class</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">=</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">".lister-item-header a"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="do">## preview the titles</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>titles[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "YDGAB"</code></pre>
+<pre><code> [1] "Hocus Pocus"                       "Bullet Train"                     
+ [3] "Thor: Love and Thunder"            "DC League of Super-Pets"          
+ [5] "Everything Everywhere All at Once" "Beetle Juice"                     
+ [7] "Super Mario Bros."                 "Trick 'r Treat"                   
+ [9] "Once Upon a Time... in Hollywood"  "Knives Out"                       </code></pre>
 </div>
 </div>
+<p><strong>Step 3: Create other variables</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## apply same procedure to other variables</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>year<span class="ot">=</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">".text-muted.unbold"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>rating <span class="ot">=</span> page <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">".ratings-imdb-rating strong"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## preview variables</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>year[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "(1993)" "(2022)" "(2022)" "(2022)" "(2022)" "(1988)" "(1993)" "(2007)"
+ [9] "(2019)" "(2019)"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rating[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "6.9" "7.4" "6.4" "7.4" "8.1" "7.5" "4.1" "6.7" "7.6" "7.9"</code></pre>
+</div>
+</div>
+<p><strong>Step 4: Create data frame</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a dataset</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">=</span> <span class="fu">data.frame</span>(titles, year, rating, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>movies[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                              titles   year rating
+1                        Hocus Pocus (1993)    6.9
+2                       Bullet Train (2022)    7.4
+3             Thor: Love and Thunder (2022)    6.4
+4            DC League of Super-Pets (2022)    7.4
+5  Everything Everywhere All at Once (2022)    8.1
+6                       Beetle Juice (1988)    7.5
+7                  Super Mario Bros. (1993)    4.1
+8                     Trick 'r Treat (2007)    6.7
+9   Once Upon a Time... in Hollywood (2019)    7.6
+10                        Knives Out (2019)    7.9</code></pre>
+</div>
+</div>
+<p>References of web scraping with R:</p>
+<ul>
+<li><a href="https://www.scraperapi.com/blog/web-scraping-with-r/">Scraperapi</a></li>
+<li><a href="https://www.scrapingbee.com/blog/web-scraping-r/">Scrapingbee</a></li>
+<li><a href="https://appsilon.com/webscraping-dynamic-websites-with-r/">Appsilon</a></li>
+</ul>
+</section>
+<section id="simple-aggregations-on-dataset" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="simple-aggregations-on-dataset"><span class="header-section-number">1.3.2</span> Simple Aggregations on Dataset</h3>
+<p>This part provides some basic aggregations and data manipulation methods in R via {dplyr} package.</p>
+<p>Without leaving the concept in previous part, we can assume that we created our own dataset. So, what’s next?</p>
+<p>The process of extracting insightful information from datasets starts from understanding the data structure and manipulating them. R provides a package just for this: <strong>{dplyr}</strong></p>
+<p>Step by step aggregation &amp; filtering &amp; summarizing dataset</p>
+<p><strong>Step 1: Install Package</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Before you start, you need to execute once the code below.</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="do">##install.packages("dplyr")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Step 2: Call the library</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+</div>
+<p><strong>Step 3: Select subset of data in different aspects</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting specific columns</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(movies, titles, year)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                              titles   year
+1                        Hocus Pocus (1993)
+2                       Bullet Train (2022)
+3             Thor: Love and Thunder (2022)
+4            DC League of Super-Pets (2022)
+5  Everything Everywhere All at Once (2022)
+6                       Beetle Juice (1988)
+7                  Super Mario Bros. (1993)
+8                     Trick 'r Treat (2007)
+9   Once Upon a Time... in Hollywood (2019)
+10                        Knives Out (2019)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## filter data according to specific condition</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(movies, rating <span class="sc">&gt;</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             titles   year rating
+1 Everything Everywhere All at Once (2022)    8.1
+2           The Wolf of Wall Street (2013)    8.2
+3                          Deadpool (2016)    8.0
+4                Back to the Future (1985)    8.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## sort rows</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(movies, <span class="fu">desc</span>(titles))[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                    titles   year rating
+1                           Trick 'r Treat (2007)    6.7
+2                   Thor: Love and Thunder (2022)    6.4
+3                  The Wolf of Wall Street (2013)    8.2
+4                              The Witches (1990)    6.8
+5  The Unbearable Weight of Massive Talent (2022)    7.0
+6                        The Suicide Squad (2021)    7.2
+7            The Rocky Horror Picture Show (1975)    7.4
+8                            The Lost City (2022)    6.1
+9                            The Lost Boys (1987)    7.2
+10                             The Goonies (1985)    7.7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## select top n rows</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">top_n</span>(movies, <span class="dv">3</span>, titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   titles   year rating
+1  Thor: Love and Thunder (2022)    6.4
+2          Trick 'r Treat (2007)    6.7
+3 The Wolf of Wall Street (2013)    8.2</code></pre>
+</div>
+</div>
+<p><strong>Step 4: Summarize Dataset</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## convert rating columns as numeric and calculate the average</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(movies, <span class="at">average_rating =</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(rating)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  average_rating
+1          6.882</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## group by and summarize</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>grouped_data <span class="ot">=</span> <span class="fu">group_by</span>(movies, year)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(grouped_data, <span class="at">average_rating =</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(rating)))[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  year   average_rating
+  &lt;chr&gt;           &lt;dbl&gt;
+1 (1975)            7.4
+2 (1984)            7.8
+3 (1985)            8.1
+4 (1987)            7.2
+5 (1988)            7.5</code></pre>
+</div>
+</div>
+<p><strong>Step 5: %&gt;% Operator</strong></p>
+<p>This operator takes the object from the left and gives it as the first argument to the function on the right. It makes your code more readable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## same grouping and summarizing operation at step4 </span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>movies <span class="sc">%&gt;%</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_rating =</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(rating)))<span class="sc">%&gt;%</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">5</span>, <span class="fu">desc</span>(average_rating))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 2
+  year       average_rating
+  &lt;chr&gt;               &lt;dbl&gt;
+1 (1993)                5.5
+2 (1995)                6.5
+3 (2002)                5.2
+4 (2005)                6.5
+5 (2009)                5.3
+6 (2020)                5.2
+7 (I) (2022)            6.5</code></pre>
+</div>
+</div>
+<p>Reference of aggregations with R:</p>
+<ul>
+<li><a href="https://courses.cs.ut.ee/MTAT.03.183/2017_fall/uploads/Main/dplyr.html">courses.cs.ut.ee</a></li>
+</ul>
+</section>
+<section id="visualization-with-r" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="visualization-with-r"><span class="header-section-number">1.3.3</span> Visualization with R</h3>
+<p><strong>Step 1: Install Package</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Before you start, you need to execute once the code below.</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">##install.packages("ggplot2")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Step 2: Call the library</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Step 3: Histogram with ggplot2</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## convert rating field as numeric and keep in original dataset</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>movies<span class="sc">$</span>rating<span class="ot">=</span><span class="fu">as.numeric</span>(rating)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="do">## histogram for ratings</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(movies<span class="sc">$</span>rating,<span class="at">col=</span><span class="st">'steelblue'</span>,<span class="at">main=</span><span class="st">'Rating Histogram'</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">'Ratings'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="assignment1_files/figure-html/visualization-chunk3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><strong>Step 4: Pie Chart with ggplot2</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Set a new flag in dataset</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>movies<span class="ot">=</span>movies <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">rating_flag =</span> <span class="fu">case_when</span>(rating<span class="sc">&gt;=</span><span class="dv">8</span><span class="sc">~</span> <span class="st">"Higher 8"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Lower 8"</span>))</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a new table for better visualization</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>count_movies<span class="ot">=</span>movies <span class="sc">%&gt;%</span> <span class="fu">count</span>(rating_flag)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="do">## pie chart according to rating of movies</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(count_movies, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> n, <span class="at">fill =</span> rating_flag)) <span class="sc">+</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> n),</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="assignment1_files/figure-html/visualization-chunk4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>References of visualization with R:</p>
+<ul>
+<li><a href="https://r-charts.com/part-whole/pie-chart-ggplot2/">r-charts</a></li>
+<li><a href="https://www.kdnuggets.com/2018/06/7-simple-data-visualizations-should-know-r.html">kdnuggets</a></li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -293,7 +641,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
