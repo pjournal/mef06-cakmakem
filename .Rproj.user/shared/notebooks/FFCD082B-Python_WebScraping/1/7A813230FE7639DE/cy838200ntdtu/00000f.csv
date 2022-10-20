@@ -1,0 +1,21 @@
+"0","reticulate::repl_python()"
+"2","+ ""C:/Users/EMRE/AppData/Local/r-miniconda/condabin/conda.bat"" ""create"" ""--yes"" ""--prefix"" ""C:/Users/EMRE/AppData/Local/r-miniconda/envs/r-reticulate"" ""python=3.8"" ""numpy"" ""--quiet"" ""-c"" ""conda-forge""
+"
+"1","Collecting package metadata (current_repodata.json): ...working... failed
+"
+"1","
+"
+"1","CondaSSLError: OpenSSL appears to be unavailable on this machine. OpenSSL is required to
+"
+"1","download and install packages.
+"
+"1","
+"
+"1","Exception: HTTPSConnectionPool(host='conda.anaconda.org', port=443): Max retries exceeded with url: /conda-forge/win-64/current_repodata.json (Caused by SSLError(""Can't connect to HTTPS URL because the SSL module is not available.""))
+"
+"1","
+"
+"1","
+"
+"2","Error: Error creating conda environment 'C:/Users/EMRE/AppData/Local/r-miniconda/envs/r-reticulate' [exit code 1]
+"
