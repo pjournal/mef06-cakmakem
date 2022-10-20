@@ -9,7 +9,7 @@
 <meta name="author" content="Emre Çakmak">
 <meta name="dcterms.date" content="2022-10-20">
 
-<title>Web Scraping and Clustering in Python</title>
+<title>Emre Çakmak Progress Journal - 3&nbsp; Web Scraping and Clustering in Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,18 +88,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<script src="Python_WebScraping_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Python_WebScraping_files/libs/quarto-html/quarto.js"></script>
-<script src="Python_WebScraping_files/libs/quarto-html/popper.min.js"></script>
-<script src="Python_WebScraping_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Python_WebScraping_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Python_WebScraping_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Python_WebScraping_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="Python_WebScraping_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="Python_WebScraping_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Python_WebScraping_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Python_WebScraping_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="Python_WebScraping_files/libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./inclass1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -107,25 +131,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body>
+<body class="nav-sidebar floating">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
-<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  <nav id="TOC" role="doc-toc" class="toc-active">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Web Scraping and Clustering in Python</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Emre Çakmak Progress Journal</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/pjournal/mef06-cakmakem" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">BDA-503 Assigment 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inclass1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Inclass Exercise-1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Python_WebScraping.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Web Scraping and Clustering in Python</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#web-scraping-and-clustering-on-nft-marketplace" id="toc-web-scraping-and-clustering-on-nft-marketplace" class="nav-link active" data-scroll-target="#web-scraping-and-clustering-on-nft-marketplace"><span class="toc-section-number">0.1</span>  Web Scraping and Clustering on NFT Marketplace</a></li>
+  <li><a href="#web-scraping-and-clustering-on-nft-marketplace" id="toc-web-scraping-and-clustering-on-nft-marketplace" class="nav-link active" data-scroll-target="#web-scraping-and-clustering-on-nft-marketplace"><span class="toc-section-number">3.0.1</span>  Web Scraping and Clustering on NFT Marketplace</a></li>
   </ul>
 </nav>
-</div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-</div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Web Scraping and Clustering in Python</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Web Scraping and Clustering in Python</span></h1>
 </div>
 
 
@@ -151,8 +242,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="web-scraping-and-clustering-on-nft-marketplace" class="level3" data-number="0.1">
-<h3 data-number="0.1" class="anchored" data-anchor-id="web-scraping-and-clustering-on-nft-marketplace"><span class="header-section-number">0.1</span> Web Scraping and Clustering on NFT Marketplace</h3>
+<section id="web-scraping-and-clustering-on-nft-marketplace" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="web-scraping-and-clustering-on-nft-marketplace"><span class="header-section-number">3.0.1</span> Web Scraping and Clustering on NFT Marketplace</h3>
 <p>We are importing the required libraries. Especially selenium for scraping, pandas for dataframes and sklearn for clustering processes.</p>
 <p>Step by step;</p>
 <ul>
@@ -304,13 +395,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>finalists[<span class="dv">1</span>:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\EMRE\AppData\Local\Temp\ipykernel_14656\1984115952.py:27: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+<pre><code>C:\Users\EMRE\AppData\Local\Temp\ipykernel_12460\1984115952.py:27: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
   driver = webdriver.Chrome(r"C:\Users\EMRE\Documents\GitHub\mef06-cakmakem\ScrapingFiles\chromedriver.exe")</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Python_WebScraping_files/figure-html/cell-2-output-2.png" width="647" height="476"></p>
+<p><img src="Python_WebScraping_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="1">
 
 <div>
 
@@ -334,149 +425,150 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </thead>
   <tbody>
     <tr>
+      <th>3</th>
+      <td>-154</td>
+      <td>-123</td>
+      <td>315</td>
+      <td>163.373805</td>
+      <td>5</td>
+      <td>2.531419e+19</td>
+      <td>69.878466</td>
+      <td>2.531419e+19</td>
+      <td>0.518647</td>
+      <td>0.627807</td>
+      <td>0.208577</td>
+      <td>0.314942</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-23</td>
+      <td>-177</td>
+      <td>326</td>
+      <td>178.488095</td>
+      <td>5</td>
+      <td>2.531419e+19</td>
+      <td>69.878466</td>
+      <td>2.531419e+19</td>
+      <td>0.547509</td>
+      <td>0.627807</td>
+      <td>0.208577</td>
+      <td>0.314942</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-65</td>
+      <td>-165</td>
+      <td>343</td>
+      <td>177.341479</td>
+      <td>5</td>
+      <td>2.531419e+19</td>
+      <td>69.878466</td>
+      <td>2.531419e+19</td>
+      <td>0.517031</td>
+      <td>0.627807</td>
+      <td>0.208577</td>
+      <td>0.314942</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-117</td>
+      <td>-182</td>
+      <td>349</td>
+      <td>136.832014</td>
+      <td>5</td>
+      <td>2.531419e+19</td>
+      <td>69.878466</td>
+      <td>2.531419e+19</td>
+      <td>0.392069</td>
+      <td>0.627807</td>
+      <td>0.208577</td>
+      <td>0.314942</td>
+    </tr>
+    <tr>
       <th>7</th>
-      <td>214</td>
-      <td>69</td>
-      <td>300</td>
-      <td>122.388725</td>
-      <td>8</td>
-      <td>1.201201e+43</td>
-      <td>64.705781</td>
-      <td>1.201201e+43</td>
-      <td>0.407962</td>
-      <td>0.544659</td>
-      <td>0.124203</td>
-      <td>0.358354</td>
+      <td>194</td>
+      <td>132</td>
+      <td>180</td>
+      <td>102.352333</td>
+      <td>7</td>
+      <td>1.001001e+52</td>
+      <td>66.738417</td>
+      <td>1.001001e+52</td>
+      <td>0.568624</td>
+      <td>0.573959</td>
+      <td>0.116271</td>
+      <td>0.399552</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>215</td>
-      <td>77</td>
-      <td>300</td>
-      <td>115.680595</td>
-      <td>8</td>
-      <td>1.201201e+43</td>
-      <td>64.705781</td>
-      <td>1.201201e+43</td>
-      <td>0.385602</td>
-      <td>0.544659</td>
-      <td>0.124203</td>
-      <td>0.358354</td>
+      <td>196</td>
+      <td>132</td>
+      <td>180</td>
+      <td>98.468269</td>
+      <td>7</td>
+      <td>1.001001e+52</td>
+      <td>66.738417</td>
+      <td>1.001001e+52</td>
+      <td>0.547046</td>
+      <td>0.573959</td>
+      <td>0.116271</td>
+      <td>0.399552</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>15</th>
       <td>200</td>
       <td>62</td>
       <td>300</td>
       <td>147.282042</td>
-      <td>8</td>
-      <td>1.201201e+43</td>
-      <td>64.705781</td>
-      <td>1.201201e+43</td>
+      <td>7</td>
+      <td>1.001001e+52</td>
+      <td>66.738417</td>
+      <td>1.001001e+52</td>
       <td>0.490940</td>
-      <td>0.544659</td>
-      <td>0.124203</td>
-      <td>0.358354</td>
+      <td>0.573959</td>
+      <td>0.116271</td>
+      <td>0.399552</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>206</td>
-      <td>67</td>
+      <th>16</th>
+      <td>159</td>
+      <td>42</td>
       <td>300</td>
-      <td>136.422139</td>
-      <td>8</td>
-      <td>1.201201e+43</td>
-      <td>64.705781</td>
-      <td>1.201201e+43</td>
-      <td>0.454740</td>
-      <td>0.544659</td>
-      <td>0.124203</td>
-      <td>0.358354</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>186</td>
-      <td>107</td>
-      <td>319</td>
-      <td>139.610172</td>
-      <td>8</td>
-      <td>1.201201e+43</td>
-      <td>64.705781</td>
-      <td>1.201201e+43</td>
-      <td>0.437649</td>
-      <td>0.544659</td>
-      <td>0.124203</td>
-      <td>0.358354</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>124</td>
-      <td>105</td>
-      <td>320</td>
-      <td>162.483845</td>
-      <td>8</td>
-      <td>1.201201e+43</td>
-      <td>64.705781</td>
-      <td>1.201201e+43</td>
-      <td>0.507762</td>
-      <td>0.544659</td>
-      <td>0.124203</td>
-      <td>0.358354</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>146</td>
-      <td>132</td>
-      <td>340</td>
-      <td>163.694838</td>
-      <td>8</td>
-      <td>1.201201e+43</td>
-      <td>64.705781</td>
-      <td>1.201201e+43</td>
-      <td>0.481455</td>
-      <td>0.544659</td>
-      <td>0.124203</td>
-      <td>0.358354</td>
+      <td>164.453641</td>
+      <td>7</td>
+      <td>1.001001e+52</td>
+      <td>66.738417</td>
+      <td>1.001001e+52</td>
+      <td>0.548179</td>
+      <td>0.573959</td>
+      <td>0.116271</td>
+      <td>0.399552</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>-76</td>
-      <td>-92</td>
-      <td>300</td>
-      <td>119.331471</td>
-      <td>2</td>
-      <td>1.307995e+43</td>
-      <td>41.282765</td>
-      <td>1.307995e+43</td>
-      <td>0.397772</td>
-      <td>0.465184</td>
-      <td>0.147756</td>
-      <td>0.243550</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>-128</td>
-      <td>-42</td>
-      <td>300</td>
-      <td>134.714513</td>
-      <td>2</td>
-      <td>1.307995e+43</td>
-      <td>41.282765</td>
-      <td>1.307995e+43</td>
-      <td>0.449048</td>
-      <td>0.465184</td>
-      <td>0.147756</td>
-      <td>0.243550</td>
+      <td>133</td>
+      <td>63</td>
+      <td>310</td>
+      <td>147.166572</td>
+      <td>7</td>
+      <td>1.001001e+52</td>
+      <td>66.738417</td>
+      <td>1.001001e+52</td>
+      <td>0.474731</td>
+      <td>0.573959</td>
+      <td>0.116271</td>
+      <td>0.399552</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 </div>
+
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -497,119 +589,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'alternate';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -688,7 +667,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./inclass1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Inclass Exercise-1</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center"><a href="https://mef-bda503.github.io">MEF BDA 503</a></div>
+  </div>
+</footer>
 
 
 
