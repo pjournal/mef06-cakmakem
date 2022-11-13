@@ -3,7 +3,7 @@
     "path": "~/GitHub/mef06-cakmakem/Python_WebScraping.qmd",
     "project_path": "Python_WebScraping.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "781645453",
     "contents": "",
     "dirty": false,
     "created": 1666246458828.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "53,23",
+        "cursorPosition": "72,0",
         "scrollLine": "48"
     },
     "folds": "",
-    "lastKnownWriteTime": 1666265542,
+    "lastKnownWriteTime": 1666267294,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1666262929354,
+    "last_content_update": 1666298879716,
     "read_only": false,
     "read_only_alternatives": []
 }

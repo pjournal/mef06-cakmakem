@@ -191,6 +191,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./inclass1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Inclass Exercise-1</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Python_WebScraping.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Web Scraping and Clustering in Python</span></a>
+  </div>
+</li>
     </ul>
     </div>
     <nav id="TOC" role="doc-toc" class="toc-active">
@@ -346,11 +351,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="do">## preview the titles</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>titles[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Hocus Pocus 2"                     "Hocus Pocus"                      
- [3] "Bullet Train"                      "Thor: Love and Thunder"           
- [5] "Everything Everywhere All at Once" "DC League of Super-Pets"          
- [7] "Beetle Juice"                      "Laal Singh Chaddha"               
- [9] "Super Mario Bros."                 "The Addams Family"                </code></pre>
+<pre><code> [1] "Bullet Train"                      "Hocus Pocus"                      
+ [3] "Hocus Pocus 2"                     "Everything Everywhere All at Once"
+ [5] "Thor: Love and Thunder"            "Beetle Juice"                     
+ [7] "The Rocky Horror Picture Show"     "The Lost City"                    
+ [9] "The Goonies"                       "Trick 'r Treat"                   </code></pre>
 </div>
 </div>
 <p><strong>Step 3: Create other variables</strong></p>
@@ -363,12 +368,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## preview variables</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>year[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "(2022)" "(1993)" "(2022)" "(2022)" "(2022)" "(2022)" "(1988)" "(2022)"
- [9] "(1993)" "(1991)"</code></pre>
+<pre><code> [1] "(2022)" "(1993)" "(2022)" "(2022)" "(2022)" "(1988)" "(1975)" "(2022)"
+ [9] "(1985)" "(2007)"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rating[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "6.1" "6.9" "7.4" "6.4" "8.1" "7.3" "7.5" "5.4" "4.1" "6.9"</code></pre>
+<pre><code> [1] "7.3" "6.9" "6.0" "8.1" "6.4" "7.5" "7.4" "6.1" "7.7" "6.7"</code></pre>
 </div>
 </div>
 <p><strong>Step 4: Create data frame</strong></p>
@@ -378,16 +383,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>movies[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                              titles   year rating
-1                      Hocus Pocus 2 (2022)    6.1
+1                       Bullet Train (2022)    7.3
 2                        Hocus Pocus (1993)    6.9
-3                       Bullet Train (2022)    7.4
-4             Thor: Love and Thunder (2022)    6.4
-5  Everything Everywhere All at Once (2022)    8.1
-6            DC League of Super-Pets (2022)    7.3
-7                       Beetle Juice (1988)    7.5
-8                 Laal Singh Chaddha (2022)    5.4
-9                  Super Mario Bros. (1993)    4.1
-10                 The Addams Family (1991)    6.9</code></pre>
+3                      Hocus Pocus 2 (2022)    6.0
+4  Everything Everywhere All at Once (2022)    8.1
+5             Thor: Love and Thunder (2022)    6.4
+6                       Beetle Juice (1988)    7.5
+7      The Rocky Horror Picture Show (1975)    7.4
+8                      The Lost City (2022)    6.1
+9                        The Goonies (1985)    7.7
+10                    Trick 'r Treat (2007)    6.7</code></pre>
 </div>
 </div>
 <p>References of web scraping with R:</p>
@@ -432,31 +437,32 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(movies, titles, year)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                              titles   year
-1                      Hocus Pocus 2 (2022)
+1                       Bullet Train (2022)
 2                        Hocus Pocus (1993)
-3                       Bullet Train (2022)
-4             Thor: Love and Thunder (2022)
-5  Everything Everywhere All at Once (2022)
-6            DC League of Super-Pets (2022)
-7                       Beetle Juice (1988)
-8                 Laal Singh Chaddha (2022)
-9                  Super Mario Bros. (1993)
-10                 The Addams Family (1991)</code></pre>
+3                      Hocus Pocus 2 (2022)
+4  Everything Everywhere All at Once (2022)
+5             Thor: Love and Thunder (2022)
+6                       Beetle Juice (1988)
+7      The Rocky Horror Picture Show (1975)
+8                      The Lost City (2022)
+9                        The Goonies (1985)
+10                    Trick 'r Treat (2007)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## filter data according to specific condition</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(movies, rating <span class="sc">&gt;</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                             titles   year rating
-1 Everything Everywhere All at Once (2022)    8.1
-2                Back to the Future (1985)    8.5
-3           The Wolf of Wall Street (2013)    8.2
-4                          Deadpool (2016)    8.0</code></pre>
+<pre><code>                             titles       year rating
+1 Everything Everywhere All at Once     (2022)    8.1
+2           The Wolf of Wall Street     (2013)    8.2
+3                Back to the Future     (1985)    8.5
+4                Young Frankenstein     (1974)    8.0
+5                              Coco (I) (2017)    8.4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## sort rows</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(movies, <span class="fu">desc</span>(titles))[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                    titles       year rating
-1                            Weird Science     (1985)    6.6
+1                       Young Frankenstein     (1974)    8.0
 2                                     Tusk (I) (2014)    5.3
 3                           Trick 'r Treat     (2007)    6.7
 4                   Thor: Love and Thunder     (2022)    6.4
@@ -470,10 +476,10 @@ Attaching package: 'dplyr'</code></pre>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## select top n rows</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">top_n</span>(movies, <span class="dv">3</span>, titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          titles       year rating
-1 Trick 'r Treat     (2007)    6.7
-2           Tusk (I) (2014)    5.3
-3  Weird Science     (1985)    6.6</code></pre>
+<pre><code>              titles       year rating
+1     Trick 'r Treat     (2007)    6.7
+2 Young Frankenstein     (1974)    8.0
+3               Tusk (I) (2014)    5.3</code></pre>
 </div>
 </div>
 <p><strong>Step 4: Summarize Dataset</strong></p>
@@ -482,7 +488,7 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(movies, <span class="at">average_rating =</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(rating)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  average_rating
-1           6.88</code></pre>
+1          6.976</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## group by and summarize</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>grouped_data <span class="ot">=</span> <span class="fu">group_by</span>(movies, year)</span>
@@ -491,11 +497,11 @@ Attaching package: 'dplyr'</code></pre>
 <pre><code># A tibble: 5 × 2
   year   average_rating
   &lt;chr&gt;           &lt;dbl&gt;
-1 (1968)            5.8
-2 (1971)            7  
-3 (1975)            7.4
-4 (1983)            7.3
-5 (1984)            7.8</code></pre>
+1 (1974)            8  
+2 (1975)            7.4
+3 (1984)            7.8
+4 (1985)            8.1
+5 (1986)            7.1</code></pre>
 </div>
 </div>
 <p><strong>Step 5: %&gt;% Operator</strong></p>
@@ -511,11 +517,11 @@ Attaching package: 'dplyr'</code></pre>
 <pre><code># A tibble: 5 × 2
   year       average_rating
   &lt;chr&gt;               &lt;dbl&gt;
-1 (1968)               5.8 
-2 (1993)               5.85
-3 (2002)               5.2 
-4 (2020)               5.2 
-5 (I) (2014)           5.3 </code></pre>
+1 (2002)                5.2
+2 (2009)                5.4
+3 (2020)                5.2
+4 (I) (2014)            5.3
+5 (I) (2022)            5.1</code></pre>
 </div>
 </div>
 <p>Reference of aggregations with R:</p>
