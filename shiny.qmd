@@ -1,0 +1,29 @@
+---
+title: "BDA-503 Shiny Assignment"
+author: "Emre Çakmak"
+date: "2022-11-27"
+toc: true
+toc-location: left
+number-sections: true
+format: 
+  html:
+    theme: 
+      dark: vapor
+      light: pulse
+    fontsize: 0.8em
+editor: visual
+---
+
+### Shiny Assignment
+
+Shiny app will help you to understand foreign students data derived from YOK (Higher Education Council of Turkey).
+
+On shiny app, you can interactively filter cities, universities, university types and student nationalities.
+
+### shinyapps.io
+
+[Foreign Students Shiny App](https://emre-cakmak.shinyapps.io/emre_cakmak_assigment/)
+
+### Command for local running
+
+shiny::runGitHub("/pjournal/mef06-cakmakem",subdir="emre_cakmak_assigment/", ref = "gh-pages")

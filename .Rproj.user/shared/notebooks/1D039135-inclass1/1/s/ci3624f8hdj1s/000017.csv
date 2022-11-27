@@ -1,3 +1,0 @@
-"0","planes ="
-"0","planes %>% "
-"0","  mutate(manufacturer = gsub(""AIRBUS INDUSTRIE"", ""AIRBUS"", manufacturer), manufacturer=gsub("" AIRCRAFT CO| CORPORATION"", """", manufacturer))"

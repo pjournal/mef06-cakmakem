@@ -1,5 +1,0 @@
-"0","planes %>% "
-"0","  group_by(manufacturer) %>% "
-"0","  summarise(aircraft_count = n()) %>% "
-"0","  arrange(desc(aircraft_count)) %>% "
-"0","  print(n=Inf)"

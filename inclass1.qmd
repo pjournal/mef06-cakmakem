@@ -18,7 +18,6 @@ editor: visual
 
 This exercise has been prepared for understanding {dplyr} package usage for functional EDA. Main data set in this exercise will be planes data set derived from FAA.
 
-
 First of all we have to install our packages.
 
 ```{r install_packages, eval=FALSE}
@@ -27,24 +26,24 @@ install.packages("nycflights13")
 
 ```
 
-
 Then we are calling our libraries.
 
 ```{r call_libraries, message = FALSE}
 library(tidyverse)
 library(nycflights13)
 ```
+
 Let's check first 10 rows of the data set. Fields and their meanings are:
 
-  - **tailnum**: Tail number.
-  - **year**: Year manufactured.
-  - **type**: Type of plane.
-  - **manufacturer**: Manufacturer of the aircraft.
-  - **model**: Model of the aircraft.
-  - **engines**: Number of engines
-  - **seats**: Number of seats
-  - **speed**: Average cruising speed in mph.
-  - **engine**: Type of engine.
+-   **tailnum**: Tail number.
+-   **year**: Year manufactured.
+-   **type**: Type of plane.
+-   **manufacturer**: Manufacturer of the aircraft.
+-   **model**: Model of the aircraft.
+-   **engines**: Number of engines
+-   **seats**: Number of seats
+-   **speed**: Average cruising speed in mph.
+-   **engine**: Type of engine.
 
 ```{r define_dataset}
 planes %>% 
@@ -63,9 +62,9 @@ planes %>%
   print(n=Inf)
 ```
 
-It seems like there is a conflict in manufacturer names. Some of them represent the same company but in different names like Airbus and Airbus Industrie. 
+It seems like there is a conflict in manufacturer names. Some of them represent the same company but in different names like Airbus and Airbus Industrie.
 
-We need to clean and rewrite these names. Then we can apply same process again. 
+We need to clean and rewrite these names. Then we can apply same process again.
 
 ```{r simplify_manufacturer_names}
 planes =
@@ -88,8 +87,7 @@ planes %>%
 
 Let's check the difference on aircraft capacities year by year
 
-First, get only air crafts which have more than 50 seats. 
-Then clear the data by filtering rows which have no information in Year column. 
+First, get only air crafts which have more than 50 seats. Then clear the data by filtering rows which have no information in Year column.
 
 ```{r year_by_year_capacity}
 planes %>% 
@@ -99,6 +97,7 @@ planes %>%
   arrange(year) %>% 
   print(n=Inf)
 ```
+
 Let's check the biggest air craft in our database with it's tailnumber.
 
 ```{r biggest_aircraft}
@@ -109,6 +108,5 @@ planes %>%
 ```
 
 Exciting..Here is some information about [the biggest airplane's history](https://www.planespotters.net/airframe/boeing-747-400-n670us-delta-air-lines/3wno03)
-
 
 **THANKS FOR READING**

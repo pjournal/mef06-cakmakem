@@ -1,6 +1,0 @@
-"0","planes %>% "
-"0","  filter(seats>50,!is.na(year))%>%"
-"0","  group_by(year) %>% "
-"0","  summarise(seat_avg = round(mean(seats),2)) %>% "
-"0","  arrange(year) %>% "
-"0","  print(n=Inf)"

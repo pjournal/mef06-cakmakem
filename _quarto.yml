@@ -10,6 +10,7 @@ book:
     - assignment1.qmd
     - inclass1.qmd
     - Python_WebScraping.qmd
+    - shiny.qmd
   page-footer: 
     center: "[MEF BDA 503](https://mef-bda503.github.io)" 
   sharing: [twitter, facebook]

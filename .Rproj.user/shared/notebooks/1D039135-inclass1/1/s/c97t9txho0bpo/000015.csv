@@ -1,4 +1,0 @@
-"0","planes %>%"
-"0","  arrange(desc(seats)) %>% "
-"0","  slice(1) %>%"
-"0","  select(tailnum, manufacturer, model, year, seats)"
