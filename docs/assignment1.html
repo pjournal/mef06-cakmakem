@@ -196,6 +196,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./shiny.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">BDA-503 Shiny Assignment</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./operation_research.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Operation Research Case Study</span></a>
+  </div>
+</li>
     </ul>
     </div>
     <nav id="TOC" role="doc-toc" class="toc-active">
@@ -352,15 +357,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>titles[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Bullet Train"                         
- [2] "A Christmas Story"                    
- [3] "Enchanted"                            
- [4] "Everything Everywhere All at Once"    
- [5] "Thor: Love and Thunder"               
- [6] "The Bad Guys"                         
- [7] "Home Alone"                           
- [8] "Knives Out"                           
- [9] "National Lampoon's Christmas Vacation"
-[10] "The Santa Clause"                     </code></pre>
+ [2] "The Banshees of Inisherin"            
+ [3] "Amsterdam"                            
+ [4] "The Menu"                             
+ [5] "Love Actually"                        
+ [6] "National Lampoon's Christmas Vacation"
+ [7] "A Christmas Story"                    
+ [8] "Home Alone"                           
+ [9] "The Addams Family"                    
+[10] "Triangle of Sadness"                  </code></pre>
 </div>
 </div>
 <p><strong>Step 3: Create other variables</strong></p>
@@ -373,12 +378,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## preview variables</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>year[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "(2022)" "(1983)" "(2007)" "(2022)" "(2022)" "(2022)" "(1990)" "(2019)"
- [9] "(1989)" "(1994)"</code></pre>
+<pre><code> [1] "(2022)" "(2022)" "(2022)" "(2022)" "(2003)" "(1989)" "(1983)" "(1990)"
+ [9] "(1991)" "(2022)"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rating[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "7.3" "7.9" "7.1" "8.1" "6.3" "6.8" "7.7" "7.9" "7.5" "6.5"</code></pre>
+<pre><code> [1] "7.3" "8.0" "6.1" "7.5" "7.6" "7.5" "7.9" "7.7" "6.9" "7.6"</code></pre>
 </div>
 </div>
 <p><strong>Step 4: Create data frame</strong></p>
@@ -389,15 +394,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>                                  titles   year rating
 1                           Bullet Train (2022)    7.3
-2                      A Christmas Story (1983)    7.9
-3                              Enchanted (2007)    7.1
-4      Everything Everywhere All at Once (2022)    8.1
-5                 Thor: Love and Thunder (2022)    6.3
-6                           The Bad Guys (2022)    6.8
-7                             Home Alone (1990)    7.7
-8                             Knives Out (2019)    7.9
-9  National Lampoon's Christmas Vacation (1989)    7.5
-10                      The Santa Clause (1994)    6.5</code></pre>
+2              The Banshees of Inisherin (2022)    8.0
+3                              Amsterdam (2022)    6.1
+4                               The Menu (2022)    7.5
+5                          Love Actually (2003)    7.6
+6  National Lampoon's Christmas Vacation (1989)    7.5
+7                      A Christmas Story (1983)    7.9
+8                             Home Alone (1990)    7.7
+9                      The Addams Family (1991)    6.9
+10                   Triangle of Sadness (2022)    7.6</code></pre>
 </div>
 </div>
 <p>References of web scraping with R:</p>
@@ -443,50 +448,49 @@ Attaching package: 'dplyr'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                  titles   year
 1                           Bullet Train (2022)
-2                      A Christmas Story (1983)
-3                              Enchanted (2007)
-4      Everything Everywhere All at Once (2022)
-5                 Thor: Love and Thunder (2022)
-6                           The Bad Guys (2022)
-7                             Home Alone (1990)
-8                             Knives Out (2019)
-9  National Lampoon's Christmas Vacation (1989)
-10                      The Santa Clause (1994)</code></pre>
+2              The Banshees of Inisherin (2022)
+3                              Amsterdam (2022)
+4                               The Menu (2022)
+5                          Love Actually (2003)
+6  National Lampoon's Christmas Vacation (1989)
+7                      A Christmas Story (1983)
+8                             Home Alone (1990)
+9                      The Addams Family (1991)
+10                   Triangle of Sadness (2022)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## filter data according to specific condition</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(movies, rating <span class="sc">&gt;</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                             titles   year rating
-1 Everything Everywhere All at Once (2022)    8.1
-2           The Wolf of Wall Street (2013)    8.2
-3                Back to the Future (1985)    8.5
-4                          Zootopia (2016)    8.0
-5                          Deadpool (2016)    8.0
-6           Guardians of the Galaxy (2014)    8.0
-7                   The Truman Show (1998)    8.2</code></pre>
+1         The Banshees of Inisherin (2022)    8.0
+2 Everything Everywhere All at Once (2022)    8.1
+3                             Klaus (2019)    8.1
+4 Spider-Man: Into the Spider-Verse (2018)    8.4
+5           The Wolf of Wall Street (2013)    8.2
+6           Guardians of the Galaxy (2014)    8.0</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## sort rows</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(movies, <span class="fu">desc</span>(titles))[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                    titles   year rating
-1                                 Zootopia (2016)    8.0
-2                   Thor: Love and Thunder (2022)    6.3
-3                  The Wolf of Wall Street (2013)    8.2
-4  The Unbearable Weight of Massive Talent (2022)    7.0
-5                          The Truman Show (1998)    8.2
-6                             The Terminal (2004)    7.4
-7                        The Suicide Squad (2021)    7.2
-8                       The Santa Clause 2 (2002)    5.7
-9                         The Santa Clause (1994)    6.5
-10                       The Polar Express (2004)    6.6</code></pre>
+<pre><code>                                  titles   year rating
+1                              Zoolander (2001)    6.5
+2                        White Christmas (1954)    7.5
+3                    Triangle of Sadness (2022)    7.6
+4                     Ticket to Paradise (2022)    6.2
+5                 Thor: Love and Thunder (2022)    6.3
+6                The Wolf of Wall Street (2013)    8.2
+7  The Santa Clause 3: The Escape Clause (2006)    4.8
+8                     The Santa Clause 2 (2002)    5.7
+9                       The Santa Clause (1994)    6.5
+10                     The Polar Express (2004)    6.6</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## select top n rows</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">top_n</span>(movies, <span class="dv">3</span>, titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                   titles   year rating
-1  Thor: Love and Thunder (2022)    6.3
-2 The Wolf of Wall Street (2013)    8.2
-3                Zootopia (2016)    8.0</code></pre>
+<pre><code>               titles   year rating
+1 Triangle of Sadness (2022)    7.6
+2     White Christmas (1954)    7.5
+3           Zoolander (2001)    6.5</code></pre>
 </div>
 </div>
 <p><strong>Step 4: Summarize Dataset</strong></p>
@@ -495,7 +499,7 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(movies, <span class="at">average_rating =</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(rating)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  average_rating
-1          7.176</code></pre>
+1          6.868</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## group by and summarize</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>grouped_data <span class="ot">=</span> <span class="fu">group_by</span>(movies, year)</span>
@@ -504,11 +508,11 @@ Attaching package: 'dplyr'</code></pre>
 <pre><code># A tibble: 5 × 2
   year   average_rating
   &lt;chr&gt;           &lt;dbl&gt;
-1 (1983)            7.9
-2 (1984)            7.8
-3 (1985)            8.1
-4 (1987)            7.6
-5 (1989)            7.5</code></pre>
+1 (1947)            7.9
+2 (1954)            7.5
+3 (1983)            7.6
+4 (1984)            7.3
+5 (1988)            6.9</code></pre>
 </div>
 </div>
 <p><strong>Step 5: %&gt;% Operator</strong></p>
@@ -522,13 +526,13 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">5</span>, <span class="fu">desc</span>(average_rating))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
-  year       average_rating
-  &lt;chr&gt;               &lt;dbl&gt;
-1 (1994)                6.4
-2 (2000)                6.2
-3 (2002)                5.7
-4 (2012)                6.6
-5 (I) (2022)            5.1</code></pre>
+  year   average_rating
+  &lt;chr&gt;           &lt;dbl&gt;
+1 (1996)            5.7
+2 (2002)            5.7
+3 (2008)            5.7
+4 (2017)            5.6
+5 (2020)            5.8</code></pre>
 </div>
 </div>
 <p>Reference of aggregations with R:</p>

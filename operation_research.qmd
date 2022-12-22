@@ -1,0 +1,63 @@
+---
+title: "Operation Research Case Study"
+author: "Emre Çakmak"
+date: "2022-12-22"
+toc: true
+toc-location: left
+number-sections: true
+format: 
+  html:
+    theme: 
+      dark: vapor
+      light: pulse
+    fontsize: 0.8em
+editor: visual
+---
+
+## Short Brief & Intro
+
+This documentation aims to summarise real-life business problem which has been handled by operation research technics. You can find a short brief of a case study in e-commerce business in terms of the problem definition, problem complexity, previous and current situations and the results of the study. Happy readings..
+
+[Here you can find the case study.](https://www.gurobi.com/wp-content/uploads/2022/08/CaseStudy-2021Jun-Emesa_Eng.pdf?x58432)
+
+![](images/emesa.png){fig-align="center"}
+
+## Business Case
+
+The business case belongs to Emesa Co. which owns and operates a portfolio of leading online consumer auction and deal platforms in the Netherlands and Belgium.
+
+It's known fact that e-commerce businesses need to bring more customers to their websites or mobile applications to increase customer interactions with their products. By the help of increasing traffic, they expect to get more transaction and naturally more revenue. To achieve this goal, they have to use different methods to be in contact with their customers, one of these methods is E-mail marketing.
+
+Emesa company uses the e-mail marketing frequently for cost and customization advantages. But they are struggling with 2 major constrains.
+
+-   **Timing**: When should send the emails to customers?
+
+-   **Customization**: Which content is best fit for which customer?
+
+They was operating their email marketing campaigns manually and it was taking a lot of time and generating not quite efficient results. So, they decided to get some help from Gurabi Optimization which provides OR solutions.
+
+## Time for Optimization and Implementation
+
+At the first glance, Emesa was a good opportunity; they can provide their constraints i.e. auction schedules and their customer preferences. But it was still a complex problem because of customer & email volume.
+
+They started to build mathematical modeling with Gurobi to be able to automatically decide to send **which email** to **which customer** on **which day**.
+
+-   They used auction bid histories to create customized email context which includes customer's interests.
+
+-   Customers email sending and opening history has been used for determining customer based email frequency. They found a solution to the question of how many email she/he does desire to see in weekly basis.
+
+-   They build their mathematical model according to dynamic auction schedules.
+
+-   OR solution help them to easily avoid goverment's regularizations.
+
+## What are the results?
+
+By the help of Gurobi,
+
+-   Emesa increased their email sent volume by 5%. Because there is no decision time for now. Everything is automatic.
+-   They have 6% more opened emails than usual. Nothing could be do it except an OR solution.
+-   These incrementations helped to conversion of customers. They got 6% more revenue from email campaigns anymore.
+
+![](images/Gurobi_Logo.png){fig-align="center"}
+
+Thanks for reading..

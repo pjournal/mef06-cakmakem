@@ -123,6 +123,7 @@ server <- function(input, output) {
            , Uni_Type %in% c(input$Uni_Type), Student_Nationality %in% c(input$Student_Nationality))
     filtered_dataset
   })
+  
 }
 
 

@@ -189,7 +189,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, boxrule=0pt, sharp corners, borderline west={3pt}{0pt}{shadecolor}, breakable, interior hidden, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, frame hidden, enhanced, breakable, sharp corners, boxrule=0pt, interior hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -404,15 +404,15 @@ Step by step scraping of public IMDB Dataset
 
 \begin{verbatim}
  [1] "Bullet Train"                         
- [2] "A Christmas Story"                    
- [3] "Enchanted"                            
- [4] "Everything Everywhere All at Once"    
- [5] "Thor: Love and Thunder"               
- [6] "The Bad Guys"                         
- [7] "Home Alone"                           
- [8] "Knives Out"                           
- [9] "National Lampoon's Christmas Vacation"
-[10] "The Santa Clause"                     
+ [2] "The Banshees of Inisherin"            
+ [3] "Amsterdam"                            
+ [4] "The Menu"                             
+ [5] "Love Actually"                        
+ [6] "National Lampoon's Christmas Vacation"
+ [7] "A Christmas Story"                    
+ [8] "Home Alone"                           
+ [9] "The Addams Family"                    
+[10] "Triangle of Sadness"                  
 \end{verbatim}
 
 \textbf{Step 3: Create other variables}
@@ -430,8 +430,8 @@ Step by step scraping of public IMDB Dataset
 \end{Shaded}
 
 \begin{verbatim}
- [1] "(2022)" "(1983)" "(2007)" "(2022)" "(2022)" "(2022)" "(1990)" "(2019)"
- [9] "(1989)" "(1994)"
+ [1] "(2022)" "(2022)" "(2022)" "(2022)" "(2003)" "(1989)" "(1983)" "(1990)"
+ [9] "(1991)" "(2022)"
 \end{verbatim}
 
 \begin{Shaded}
@@ -441,7 +441,7 @@ Step by step scraping of public IMDB Dataset
 \end{Shaded}
 
 \begin{verbatim}
- [1] "7.3" "7.9" "7.1" "8.1" "6.3" "6.8" "7.7" "7.9" "7.5" "6.5"
+ [1] "7.3" "8.0" "6.1" "7.5" "7.6" "7.5" "7.9" "7.7" "6.9" "7.6"
 \end{verbatim}
 
 \textbf{Step 4: Create data frame}
@@ -457,15 +457,15 @@ Step by step scraping of public IMDB Dataset
 \begin{verbatim}
                                   titles   year rating
 1                           Bullet Train (2022)    7.3
-2                      A Christmas Story (1983)    7.9
-3                              Enchanted (2007)    7.1
-4      Everything Everywhere All at Once (2022)    8.1
-5                 Thor: Love and Thunder (2022)    6.3
-6                           The Bad Guys (2022)    6.8
-7                             Home Alone (1990)    7.7
-8                             Knives Out (2019)    7.9
-9  National Lampoon's Christmas Vacation (1989)    7.5
-10                      The Santa Clause (1994)    6.5
+2              The Banshees of Inisherin (2022)    8.0
+3                              Amsterdam (2022)    6.1
+4                               The Menu (2022)    7.5
+5                          Love Actually (2003)    7.6
+6  National Lampoon's Christmas Vacation (1989)    7.5
+7                      A Christmas Story (1983)    7.9
+8                             Home Alone (1990)    7.7
+9                      The Addams Family (1991)    6.9
+10                   Triangle of Sadness (2022)    7.6
 \end{verbatim}
 
 References of web scraping with R:
@@ -542,15 +542,15 @@ The following objects are masked from 'package:base':
 \begin{verbatim}
                                   titles   year
 1                           Bullet Train (2022)
-2                      A Christmas Story (1983)
-3                              Enchanted (2007)
-4      Everything Everywhere All at Once (2022)
-5                 Thor: Love and Thunder (2022)
-6                           The Bad Guys (2022)
-7                             Home Alone (1990)
-8                             Knives Out (2019)
-9  National Lampoon's Christmas Vacation (1989)
-10                      The Santa Clause (1994)
+2              The Banshees of Inisherin (2022)
+3                              Amsterdam (2022)
+4                               The Menu (2022)
+5                          Love Actually (2003)
+6  National Lampoon's Christmas Vacation (1989)
+7                      A Christmas Story (1983)
+8                             Home Alone (1990)
+9                      The Addams Family (1991)
+10                   Triangle of Sadness (2022)
 \end{verbatim}
 
 \begin{Shaded}
@@ -562,13 +562,12 @@ The following objects are masked from 'package:base':
 
 \begin{verbatim}
                              titles   year rating
-1 Everything Everywhere All at Once (2022)    8.1
-2           The Wolf of Wall Street (2013)    8.2
-3                Back to the Future (1985)    8.5
-4                          Zootopia (2016)    8.0
-5                          Deadpool (2016)    8.0
+1         The Banshees of Inisherin (2022)    8.0
+2 Everything Everywhere All at Once (2022)    8.1
+3                             Klaus (2019)    8.1
+4 Spider-Man: Into the Spider-Verse (2018)    8.4
+5           The Wolf of Wall Street (2013)    8.2
 6           Guardians of the Galaxy (2014)    8.0
-7                   The Truman Show (1998)    8.2
 \end{verbatim}
 
 \begin{Shaded}
@@ -579,17 +578,17 @@ The following objects are masked from 'package:base':
 \end{Shaded}
 
 \begin{verbatim}
-                                    titles   year rating
-1                                 Zootopia (2016)    8.0
-2                   Thor: Love and Thunder (2022)    6.3
-3                  The Wolf of Wall Street (2013)    8.2
-4  The Unbearable Weight of Massive Talent (2022)    7.0
-5                          The Truman Show (1998)    8.2
-6                             The Terminal (2004)    7.4
-7                        The Suicide Squad (2021)    7.2
-8                       The Santa Clause 2 (2002)    5.7
-9                         The Santa Clause (1994)    6.5
-10                       The Polar Express (2004)    6.6
+                                  titles   year rating
+1                              Zoolander (2001)    6.5
+2                        White Christmas (1954)    7.5
+3                    Triangle of Sadness (2022)    7.6
+4                     Ticket to Paradise (2022)    6.2
+5                 Thor: Love and Thunder (2022)    6.3
+6                The Wolf of Wall Street (2013)    8.2
+7  The Santa Clause 3: The Escape Clause (2006)    4.8
+8                     The Santa Clause 2 (2002)    5.7
+9                       The Santa Clause (1994)    6.5
+10                     The Polar Express (2004)    6.6
 \end{verbatim}
 
 \begin{Shaded}
@@ -600,10 +599,10 @@ The following objects are masked from 'package:base':
 \end{Shaded}
 
 \begin{verbatim}
-                   titles   year rating
-1  Thor: Love and Thunder (2022)    6.3
-2 The Wolf of Wall Street (2013)    8.2
-3                Zootopia (2016)    8.0
+               titles   year rating
+1 Triangle of Sadness (2022)    7.6
+2     White Christmas (1954)    7.5
+3           Zoolander (2001)    6.5
 \end{verbatim}
 
 \textbf{Step 4: Summarize Dataset}
@@ -617,7 +616,7 @@ The following objects are masked from 'package:base':
 
 \begin{verbatim}
   average_rating
-1          7.176
+1          6.868
 \end{verbatim}
 
 \begin{Shaded}
@@ -632,11 +631,11 @@ The following objects are masked from 'package:base':
 # A tibble: 5 x 2
   year   average_rating
   <chr>           <dbl>
-1 (1983)            7.9
-2 (1984)            7.8
-3 (1985)            8.1
-4 (1987)            7.6
-5 (1989)            7.5
+1 (1947)            7.9
+2 (1954)            7.5
+3 (1983)            7.6
+4 (1984)            7.3
+5 (1988)            6.9
 \end{verbatim}
 
 \textbf{Step 5: \%\textgreater\% Operator}
@@ -657,13 +656,13 @@ argument to the function on the right. It makes your code more readable.
 
 \begin{verbatim}
 # A tibble: 5 x 2
-  year       average_rating
-  <chr>               <dbl>
-1 (1994)                6.4
-2 (2000)                6.2
-3 (2002)                5.7
-4 (2012)                6.6
-5 (I) (2022)            5.1
+  year   average_rating
+  <chr>           <dbl>
+1 (1996)            5.7
+2 (2002)            5.7
+3 (2008)            5.7
+4 (2017)            5.6
+5 (2020)            5.8
 \end{verbatim}
 
 Reference of aggregations with R:
@@ -1072,6 +1071,120 @@ Students Shiny App}
 
 shiny::runGitHub(``/pjournal/mef06-cakmakem'',subdir=``emre\_cakmak\_assigment/'',
 ref = ``gh-pages'')
+
+\bookmarksetup{startatroot}
+
+\hypertarget{operation-research-case-study}{%
+\chapter{Operation Research Case
+Study}\label{operation-research-case-study}}
+
+Emre Çakmak\\
+2022-12-22
+
+\hfill\break
+
+This documentation aims to summarise real-life business problem which
+has been handled by operation research technics. You can find a short
+brief of a case study in e-commerce business in terms of the problem
+definition, problem complexity, previous and current situations and the
+results of the study. Happy readings..
+
+\href{https://www.gurobi.com/wp-content/uploads/2022/08/CaseStudy-2021Jun-Emesa_Eng.pdf?x58432}{Here
+you can find the case study.}
+
+\begin{figure}
+
+{\centering \includegraphics{./images/emesa.png}
+
+}
+
+\end{figure}
+
+\hypertarget{business-case}{%
+\section{Business Case}\label{business-case}}
+
+The business case belongs to Emesa Co.~which owns and operates a
+portfolio of leading online consumer auction and deal platforms in the
+Netherlands and Belgium.
+
+It's known fact that e-commerce businesses need to bring more customers
+to their websites or mobile applications to increase customer
+interactions with their products. By the help of increasing traffic,
+they expect to get more transaction and naturally more revenue. To
+achieve this goal, they have to use different methods to be in contact
+with their customers, one of these methods is E-mail marketing.
+
+Emesa company uses the e-mail marketing frequently for cost and
+customization advantages. But they are struggling with 2 major
+constrains.
+
+\begin{itemize}
+\item
+  \textbf{Timing}: When should send the emails to customers?
+\item
+  \textbf{Customization}: Which content is best fit for which customer?
+\end{itemize}
+
+They was operating their email marketing campaigns manually and it was
+taking a lot of time and generating not quite efficient results. So,
+they decided to get some help from Gurabi Optimization which provides OR
+solutions.
+
+\hypertarget{time-for-optimization-and-implementation}{%
+\section{Time for Optimization and
+Implementation}\label{time-for-optimization-and-implementation}}
+
+At the first glance, Emesa was a good opportunity; they can provide
+their constraints i.e.~auction schedules and their customer preferences.
+But it was still a complex problem because of customer \& email volume.
+
+They started to build mathematical modeling with Gurobi to be able to
+automatically decide to send \textbf{which email} to \textbf{which
+customer} on \textbf{which day}.
+
+\begin{itemize}
+\item
+  They used auction bid histories to create customized email context
+  which includes customer's interests.
+\item
+  Customers email sending and opening history has been used for
+  determining customer based email frequency. They found a solution to
+  the question of how many email she/he does desire to see in weekly
+  basis.
+\item
+  They build their mathematical model according to dynamic auction
+  schedules.
+\item
+  OR solution help them to easily avoid goverment's regularizations.
+\end{itemize}
+
+\hypertarget{what-are-the-results}{%
+\section{What are the results?}\label{what-are-the-results}}
+
+By the help of Gurobi,
+
+\begin{itemize}
+\tightlist
+\item
+  Emesa increased their email sent volume by 5\%. Because there is no
+  decision time for now. Everything is automatic.
+\item
+  They have 6\% more opened emails than usual. Nothing could be do it
+  except an OR solution.
+\item
+  These incrementations helped to conversion of customers. They got 6\%
+  more revenue from email campaigns anymore.
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics{./images/Gurobi_Logo.png}
+
+}
+
+\end{figure}
+
+Thanks for reading..
 
 
 
