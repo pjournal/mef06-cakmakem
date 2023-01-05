@@ -1,0 +1,249 @@
+---
+title: "Final_assignment"
+author: "Emre Çakmak"
+date: "2023-01-05"
+toc: true
+toc-location: left
+number-sections: true
+format: 
+  html:
+    theme: 
+      dark: vapor
+      light: pulse
+    fontsize: 0.8em
+editor: visual
+---
+
+## Part I: Short and Simple Questions
+
+This part includes some general information about brand new technological developments, project journals steps and R package installation analysis.
+
+### Generative AI
+
+Generative AI is the definition of artificial intelligence which is able to generate text blocks, images etc. They can create new content, translations, answers to questions, and even videos. In recent days, there was a post on a social media platform which is all about generating an essay by the help of ChatGPT. A student from South Caroline has been caught using ChatGPT for course assignment. Also, ChatGPT is being started to use for replying new stackoverflow questions to collect more points. But stackoverflow crew has taken an urgent protection in 10 hours for avoiding copy and paste from ChatGPT. In my opinion, these technologies won't take our jobs, they will make our lifes easier.
+
+Sources:
+
+[General Info](https://www.fastcompany.com/90826178/generative-ai)
+
+[Student Case with ChatGPT](https://www.dailymail.co.uk/sciencetech/article-11577317/Student-caught-using-ChatGPT-write-philosophy-essay-South-Carolina-university.html)
+
+[ChatGPT vs Stackoverflow](https://meta.stackoverflow.com/questions/421831/temporary-policy-chatgpt-is-banned)
+
+### Automating the processes
+
+There is a common problem for almost all companies in all scopes; manual processes.
+
+I will try to summarize some different cases in terms of efficiency on workflow.
+
+-   Requirements should be predefined to avoid future surprises. For example; We have to determine the capacities or counts of GPU&CPU machines which are being processed.
+
+-   Deeply considering about the data sources and their collection methods. For example; we may need to use APIs for getting public data or stream data.
+
+-   If required, views or datamarts should be created with scheduled jobs for sustainable works.
+
+-   A project repo should be created for collaborative working with all colleagues in project. It will help to have timeless working opportunity.
+
+-   Modeling and prediction scripts should be bring together and keeping ready for working properly.
+
+-   These scripts should be scheduled on predefined time intervals. Also, this scripts must contain data writing codes to databases.
+
+-   Fully automated and preferably interactive dashboards should be created with all data (raw or processed) for analyzing and visualization.
+
+
+### Usage of some R Packages
+
+Here is the daily downloads of some R packages.
+
+```{r cranlogs package, message = FALSE}
+pti <- c("cranlogs","dplyr","tidyverse", "ggplot2", "lubridate", "tidyr")
+pti <- pti[!(pti %in% installed.packages())]
+if(length(pti)>0){
+  install.packages(pti)
+}
+
+library(cranlogs)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+library(tidyr)
+
+df_cranlogs <- cranlogs::cran_downloads(
+  packages=c("tidyverse","shiny","rmarkdown","reticulate"),
+  from="2022-11-01",to="2022-11-30")
+
+df_cranlogs %>% mutate(date=as.Date(date,"%Y%m%d")) %>%
+  ggplot(aes(x=date, y=count, color=package)) + geom_line()+
+  labs(title = "Cranlogs Package Downloads")
+```
+
+According to graph above, __reticulate__ package has the lowest usage between these 4 packages. The other 3 packages ( __shiny__, __tidyverse__, __rmarkdown__ ) have similar daily usage and they have a weekly usage pattern which is decreasing on weekends and increasing on weekdays. It may be due to commonly usage of these data science and reporting packages for academical or working life. There may be scheduled jobs for producing predictive data, reporting with rmarkdown and visualizing with interactive shiny apps. 
+
+
+## Part II: Extended Group Project
+
+
+```{r, Package Installs, message=FALSE}
+pti <- c("readxl","dplyr","tidyverse", "ggplot2", "lubridate", "tidyr", "stringi", "hrbrthemes", "viridis", "scales", "knitr")
+pti <- pti[!(pti %in% installed.packages())]
+if(length(pti)>0){
+  install.packages(pti)
+}
+
+library(readxl)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+library(tidyr)
+library(stringi)
+library(hrbrthemes)
+library(viridis)
+library(scales)
+library(knitr)
+```
+
+
+```{r, Datasets, message=FALSE}
+labour_force_status_by_reg <- readRDS("docs/tuik/Labour_force_status_by_reg.rds")
+
+employed_rate_by_marital_status <- readRDS("docs/tuik/Employed_rate_by_marital_status.rds")
+
+female<-employed_rate_by_marital_status%>%filter(gender=="Female")
+male<-employed_rate_by_marital_status%>%filter(gender=="Male")
+
+reasons_of_not_being_in_lab_for <- readRDS("docs/tuik/Reasons_of_not_being_in_lab_for.rds")
+
+crude_divorce_rate_by_provinces <- readRDS("docs/tuik/Crude_divorce_rate_by_provinces.rds")
+
+mean_age_of_mother_by_statistic <- readRDS("docs/tuik/Mean_age_of_mother_by_Statistic.rds")
+```
+
+```{r, Preprocessing, message=FALSE}
+
+mean_age_of_mother_by_statistic$region= gsub("^.{0,4}", "", mean_age_of_mother_by_statistic$region)
+mean_age_of_mother_by_statistic$region= trimws(mean_age_of_mother_by_statistic$region)
+mean_age_of_mother_by_statistic$region[mean_age_of_mother_by_statistic$region == 'Ege-Aegean'] <- 'Ege'
+labour_force_status_by_reg = labour_force_status_by_reg %>% filter(region != "Total") 
+labour_force_status_by_reg = labour_force_status_by_reg %>% filter(gender == "Female")
+mean_age_of_mother_by_statistic = mean_age_of_mother_by_statistic %>%
+                                  group_by(year,region) %>%
+                                  summarise(mother_mean_age=mean(mother_mean_age))
+labour_force_status_by_reg = labour_force_status_by_reg %>%
+            inner_join(mean_age_of_mother_by_statistic,by=c("year","region")) %>% 
+            select(year,region,mother_mean_age,employment_rate)
+
+
+correldf <- data.frame(matrix(ncol = 2, nrow = length(unique(labour_force_status_by_reg$region ))))
+colnames(correldf) <- c('region', 'correlation')
+
+estimates = numeric(length(unique(labour_force_status_by_reg$region)))
+regions = character(length(unique(labour_force_status_by_reg$region)))
+counter = 0 
+
+for (i in unique(labour_force_status_by_reg$region))
+{
+  counter = counter + 1
+  # Creating new variables makes the code clearer
+  x = labour_force_status_by_reg[labour_force_status_by_reg$region == i,]$mother_mean_age
+  y = labour_force_status_by_reg[labour_force_status_by_reg$region == i,]$employment_rate
+  
+  estimates[counter] <- cor.test(x,y,method="spearman",exact=FALSE)$estimate
+  regions[counter] <- i
+  
+}
+
+correldf$region <- regions
+correldf$correlation <- estimates
+
+correldf
+
+
+```
+
+
+
+
+## Part III: Real Life Data Processing
+
+
+```{r takeoff data, message=FALSE}
+load("C:\\Users\\EMRE.CAKMAK\\Documents\\GitHub\\mef06-cakmakem\\data_airport.Rdata")
+data_airport
+data_airport=replace(data_airport, is.na(data_airport), 0)
+
+takeoff_data <- data_airport %>%
+  select(City,Year,Dom_TakeOff_Nb_of_Pass,Int_TakeOff_Nb_of_Pass, Dom_TakeOff_Baggage, Int_TakeOff_Baggage)  %>%
+    rename(Airport = City) %>%
+      mutate(Int_Takeoff_Passenger_Percent = Int_TakeOff_Nb_of_Pass/(Int_TakeOff_Nb_of_Pass + Dom_TakeOff_Nb_of_Pass),
+             Int_TakeOff_Baggage_Per_Pass_kg = (Int_TakeOff_Baggage/Int_TakeOff_Nb_of_Pass)*1000,
+             Dom_TakeOff_Baggage_Per_Pass_kg = (Dom_TakeOff_Baggage/Dom_TakeOff_Nb_of_Pass)*1000)
+
+takeoff_data
+
+avg_baggage_kg=takeoff_data %>% 
+    group_by(Airport) %>% 
+        summarize(mean_Dom_TakeOff_Baggage_Per_Pass_kg=mean(Dom_TakeOff_Baggage_Per_Pass_kg),
+                  mean_Int_TakeOff_Baggage_Per_Pass_kg=mean(Int_TakeOff_Baggage_Per_Pass_kg)) %>% 
+                    arrange(desc(mean_Dom_TakeOff_Baggage_Per_Pass_kg))%>%
+                      head(10)
+
+ggplot(avg_baggage_kg, aes(x=reorder(Airport, -mean_Dom_TakeOff_Baggage_Per_Pass_kg),y=mean_Dom_TakeOff_Baggage_Per_Pass_kg)) + 
+  geom_bar(stat="identity", position="dodge") + 
+  labs(x = "\n Airports", y = "Avg Baggage Kg \n",
+       title = "Top 10 Airports with highest domestic baggage average weight\n") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+  geom_text(aes(label=round(mean_Dom_TakeOff_Baggage_Per_Pass_kg,2)), position=position_dodge(width=0.9), vjust=-0.25)
+
+```
+
+According to table above, graph shows the average luggage weight in domestic flights. I showed only top 10 airports with the heaviest baggages per passenger. The results are interesting. 2 airports at the top of the list are the most preferred tourism destinations of the Turkey. It may be said that internal flight passengers are bringing more luggages with them for their touristic vacations and buying some touristic souvenirs while they are turning back. But the rest of the top 10 list is more interesting. Almost every airport with heaviest luggages is located at the east side of the Turkey.  We all know that, there is a cultural difference between Turkey's region and east side region residuals mostly tend to take traditional foods with them like **pickles**, **tomato paste**, **nuts etc**. This may have caused these airports to climb to the top of the list. 
+
+Also, carrying large baggages causes cost increasings for airlines. Although the airline companies don't prefer to carry baggages which are above the passenger limits for free, they can not handle with this problem for customer satisfaction. 
+
+
+
+```{r, Dom-Int Flight Luggage, message=FALSE}
+
+takeoff_annual = data_airport %>% 
+                group_by(Year) %>% 
+                    summarise(Total_Dom_TakeOff_Nb_of_Pass = sum(Dom_TakeOff_Nb_of_Pass),
+                              Total_Int_TakeOff_Nb_of_Pass = sum(Int_TakeOff_Nb_of_Pass),
+                              Total_Dom_TakeOff_Baggage_kg=sum(Dom_TakeOff_Baggage)*1000,
+                              Total_Int_TakeOff_Baggage_kg=sum(Int_TakeOff_Baggage)*1000,
+                              Total_Dom_Landing_Nb_of_Pass = sum(Dom_Landing_Nb_of_Pass),
+                              Total_Int_Landing_Nb_of_Pass = sum(Int_Landing_Nb_of_Pass),
+                              Total_Dom_Landing_Baggage_kg=sum(Dom_Landing_Baggage)*1000,
+                              Total_Int_Landing_Baggage_kg=sum(Int_Landing_Baggage)*1000) %>%
+  
+mutate(mean_Dom_TakeOff_Baggage_Per_Pass_kg = Total_Dom_TakeOff_Baggage_kg/Total_Dom_TakeOff_Nb_of_Pass,
+       mean_Int_TakeOff_Baggage_Per_Pass_kg = Total_Int_TakeOff_Baggage_kg/Total_Int_TakeOff_Nb_of_Pass,
+       mean_Dom_Landing_Baggage_Per_Pass_kg = Total_Dom_Landing_Baggage_kg/Total_Dom_Landing_Nb_of_Pass,
+       mean_Int_Landing_Baggage_Per_Pass_kg = Total_Int_Landing_Baggage_kg/Total_Int_Landing_Nb_of_Pass)
+
+
+
+takeoff_annual_pl = takeoff_annual %>%
+  filter(Year >= 2013) %>% 
+  select(Year, mean_Dom_TakeOff_Baggage_Per_Pass_kg ,mean_Int_TakeOff_Baggage_Per_Pass_kg, mean_Dom_Landing_Baggage_Per_Pass_kg, mean_Int_Landing_Baggage_Per_Pass_kg) %>% 
+  pivot_longer(!Year, names_to = "Baggage_Per_Pass_kg", values_to = "Kg_per_pass") %>%
+  mutate(Baggage_Per_Pass_kg = replace(Baggage_Per_Pass_kg, Baggage_Per_Pass_kg == 'mean_Dom_TakeOff_Baggage_Per_Pass_kg', 'Dom_Takeoff'),
+         Baggage_Per_Pass_kg = replace(Baggage_Per_Pass_kg, Baggage_Per_Pass_kg == 'mean_Int_TakeOff_Baggage_Per_Pass_kg', 'Int_Takeoff'),
+         Baggage_Per_Pass_kg = replace(Baggage_Per_Pass_kg, Baggage_Per_Pass_kg == 'mean_Dom_Landing_Baggage_Per_Pass_kg', 'Dom_Landing'),
+         Baggage_Per_Pass_kg = replace(Baggage_Per_Pass_kg, Baggage_Per_Pass_kg == 'mean_Int_Landing_Baggage_Per_Pass_kg', 'Int_Landing'))
+
+
+ggplot(takeoff_annual_pl, aes(x=Year,y=Kg_per_pass, color=Baggage_Per_Pass_kg)) + 
+  geom_line() + 
+  labs(x = "\n Year", y = "Kg per Passenger \n",
+       title = "Domestic and International Flight Luggage Average Year by Year\n") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+  ylim(0,25)
+  
+```
+
+At the graph above, I aim to show difference between International and Domestic flights in terms of luggage weight per passenger. Graph tells us that International flight baggages almost 2 times heavier than domestic flights as expected. People travel to out of Turkey are taking more thing with them. This situation continues every year. In spite of the fact that airlines provide larger baggege limit to domestic flights, domestic passenger doesn't prefer to carry heavy luggages. One of the potential result of this situation is that there are lots of business flights in Turkey and people have opportunity to carry their luggages with different transportation way for example carrying with cargo companies or bus companies. But this opportunity doesn't exist or quite expensive for international passengers. 
+
+Also, when we looked at from another point of view, 2020 is the year of incrementation of personal luggages per passenger. There may be possible reasons of it. First one is covid effect. Covid affected the both flight types, it limited the business and touristic flights. The other reason is economical crisis in Turkey. When we checked the 2021, average luggage weight has decreased but still higher than 2010's level. Economical conditions in Turkey promoted the **shopping travels** to Turkey. They are shopping and leaving from Turkey with more stuff. When we checked the International landings and takeoff difference, the gap has increased especially in 2020. In this graph, domestic landings and takeoff luggage average is equal because we are using exactly same flights for our domestic calculation. 
+
